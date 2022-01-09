@@ -63,7 +63,7 @@ exports.signin=async(req,res,next)=>{
   if(!isvalid) return res.status(400).send({msg:"invalid password"})
 
   //generate token
-  const token=jwt.sign(existuser.toJSON(),"CODE")
+  const token=jwt.sign({existuser},"CODE")
   res.send(token)
 
 }
